@@ -3,11 +3,13 @@ use App\User;
 
  ?>
 <!doctype html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-    <style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    <style>
         body { font-family: DejaVu Sans, sans-serif; }
+        *{
+            background-image: ;
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -21,16 +23,16 @@ use App\User;
 <br>
 <p>بعون الله وتوفيقه فإنه في يوم {{User::$day}}  بتاريخ: {{User::$date}} م بمدينة الرياض، تم الاتفاق والتراضي بين كل من:
     الطرف الأول: شركة أميال الذكية للتسويق الرقمي، سجل تجاري رقم (1010635552)
-    ، بريد الكتروني (Info@amyalsmart.com)
+    ، بريد الكتروني <span  text-align:left ;>(Info@amyalsmart.com)</span>
     ، ومقرها: الرياض - برج المدار – تقاطع العليا العام وطريق خريص، جوال: (0583642827)
     ، ويمثلها الأستاذ: همام الحميضي ، بصفته: المدير العام.
     <br>
     الطرف الثاني: شركة {{User::$service_name}}،
     سجل تجاري رقم ({{User::$commercial_registration}})،
-    بريد الكتروني ({{User::$email}})،
+    بريد الكتروني<span  text-align:left ;>({{User::$email}})</span>،
     ومقرها الرياض،
     جوال: ({{User::$mobile_no}})،
-    ويمثلها الأستاذ: ({{User::$name}}).</p>
+    ويمثلها الأستاذ: ({{User::$name}}).</div>
 
 <b>التمهيد:</b>
 <p>
