@@ -3,9 +3,8 @@ namespace App\Http\Controllers;
 use PDF;
 use App\User;
 use Carbon\Carbon;
+use Dompdf\Dompdf;
 use Illuminate\Support\Facades\Storage;
-require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf();
 
 class  Functions
 {
@@ -80,29 +79,21 @@ class  Functions
         $lg['a_meta_language'] = 'ar';
         $lg['a_meta_dir'] = 'rtl';
         $lg['w_page'] = 'page';
-        // PDF::setLanguageArray($lg);
+        PDF::setLanguageArray($lg);
 
-        // PDF::SetTitle(trans('dashboard.agreement'));
-        // PDF::AddPage();
-        // PDF::writeHTML($html, true, false, true, false, '');
+        PDF::SetTitle(trans('dashboard.agreement'));
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
         // \Storage::disk('s3')->put($file_name, PDF::Output($file_name, 'S'), 'public');
         // return \Storage::disk('s3')->url($file_name);
-        //$file_path = storage_path('app') . '/' . $file_name;
+        $file_path = storage_path('app') . '/' . $file_name;
 
-        //PDF::Output($file_path, 'F');
-
-        $pdf = PDF::loadView('agreement');
-        $mpdf = $pdf->getMpdf ();
-        //for multiple page
-        $mpdf->AddPage();
-        $html = view('pdf/page2')->render();
-        $mpdf->writeHTML ($html);
-        return $pdf->stream();
+        PDF::Output($file_path, 'F');
 
         // Return the PDF file as a response with the appropriate headers
-        // return response()->file($file_path, [
-        //     'Content-Type' => 'application/pdf',
-        //     'Content-Disposition' => 'inline; filename="' . $file_name . '"',
-        // ]);
+        return response()->file($file_path, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="' . $file_name . '"',
+        ]);
 }
 }

@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Mpdf\MpdfServiceProvider::class,
+        // Mpdf\MpdfServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -183,7 +183,7 @@ return [
 
     'aliases' =>
         Facade::defaultAliases()->merge([
-            'PDF' => Mpdf\MpdfFacade::class,
+            // 'PDF' => Mpdf\MpdfFacade::class,
             // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
